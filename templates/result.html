@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hasil - {{ title }}</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="shortcut icon" href="/static/img/bird.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      class="hero min-h-screen w-full"
+      style="background-image: url(/static/img/bg.jpg)"
+    >
+      <div class="hero-overlay bg-opacity-70"></div>
+      <div
+        class="w-full flex justify-center items-center text-center text-neutral-content"
+      >
+        <div
+          class="w-7/12 bg-white border border-white px-6 py-3 bg-opacity-30 backdrop-blur-sm rounded-xl shadow-md"
+        >
+          <h1 class="text-white text-3xl font-semibold">
+            Prediksi Sentimen Ulasan (Naive Bayes)
+          </h1>
+          <div class="flex gap-10 justify-center mt-5">
+            <img
+              class="p-2 rounded-xl bg-white object-cover aspect-square shadow-md"
+              src="/static/img/gps.png"
+              width="70"
+              height="70"
+              alt=""
+            />
+            <img
+              class="p-2 rounded-xl bg-white object-cover aspect-square shadow-md"
+              src="/static/img/tokped.png"
+              width="70"
+              height="70"
+              alt=""
+            />
+          </div>
+          <div role="alert" class="alert mt-5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="stroke-info shrink-0 w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <span
+              >Prediksi <span class="font-semibold">sentimen</span> dibawah
+              adalah model data training dari ulasan aplikasi
+              <span class="font-semibold text-green-600">TokoPedia</span>.</span
+            >
+          </div>
+          <div
+            class="pb-6 px-6 bg-white flex flex-col mt-5 rounded-lg shadow-lg text-slate-800"
+          >
+            <h1 class="text-2xl font-semibold mt-3">Hasil Prediksi</h1>
+            <div
+              class="flex flex-col gap-[0.75rem] items-start justify-center mt-3 mb-3"
+            >
+              <h1 class="text-xl font-semibold">
+                Hasil Sentimen : {% if review=="Positif" %}
+                <span
+                  class="px-2 py-1 rounded-full shadow-md bg-cyan-600 text-white"
+                  >{{ review }}</span
+                ><span class="text-3xl">😁</span>{% elif review=="Negatif" %}
+                <span
+                  class="px-2 py-1 rounded-full shadow-md bg-red-600 text-white"
+                  >{{ review }}</span
+                >
+                <span class="text-3xl">😡</span> {% endif %}
+              </h1>
+              <h1 class="text-xl font-semibold">Persentase : {{ percent }}%</h1>
+              <h1 class="text-xl font-semibold">
+                Hasil Probabilitas : {{ proba }}
+              </h1>
+            </div>
+            <a href="/" class="btn btn-accent">Kembali</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
